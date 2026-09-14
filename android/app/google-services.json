@@ -1,4 +1,4 @@
-{
+﻿{
   "project_info": {
     "project_number": "406946183197",
     "project_id": "aerial-sandbox-508613-d5",
@@ -29,6 +29,49 @@
             {
               "client_id": "406946183197-mj7i53ds34f6hivsutacf121ieu7fb1u.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "406946183197-lps5rloueh39id61h8tfohn0f363d796.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.pioneeracademy.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406946183197:android:4954a9c3a734793b3f6ef4",
+        "android_client_info": {
+          "package_name": "com.pioneeracademy.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406946183197-mj7i53ds34f6hivsutacf121ieu7fb1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUZpCkTYW3zrD9X4f0G-QFFGwvZUnpJCQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406946183197-mj7i53ds34f6hivsutacf121ieu7fb1u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "406946183197-lps5rloueh39id61h8tfohn0f363d796.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.pioneeracademy.app"
+              }
             }
           ]
         }

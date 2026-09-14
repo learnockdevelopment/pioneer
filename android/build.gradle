@@ -18,7 +18,7 @@ subprojects {
                     targetCompatibility = JavaVersion.VERSION_17
                 }
                 if (project.android.namespace == null) {
-                    namespace = "com.pioneer.${project.name.replace('-', '_')}"
+                    namespace = "com.pioneeracademy.${project.name.replace('-', '_')}"
                 }
                 defaultConfig {
                     targetSdkVersion 36
