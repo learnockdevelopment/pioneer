@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     projectId: 'aerial-sandbox-508613-d5',
     storageBucket: 'aerial-sandbox-508613-d5.firebasestorage.app',
     iosClientId: '406946183197-lps5rloueh39id61h8tfohn0f363d796.apps.googleusercontent.com',
-    iosBundleId: 'com.pioneer.app',
+    iosBundleId: 'com.pioneeracademy.app',
   );
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyD0kIdMM3gpVcpgnITHUc82yAjno8_bbGs',
@@ -72,7 +72,7 @@ class DefaultFirebaseOptions {
     projectId: 'aerial-sandbox-508613-d5',
     storageBucket: 'aerial-sandbox-508613-d5.firebasestorage.app',
     iosClientId: '406946183197-lps5rloueh39id61h8tfohn0f363d796.apps.googleusercontent.com',
-    iosBundleId: 'com.pioneer.app',
+    iosBundleId: 'com.pioneeracademy.app',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(

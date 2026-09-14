@@ -1,4 +1,4 @@
-﻿package com.pioneer.app
+﻿package com.pioneeracademy.app
 
 import io.flutter.embedding.android.FlutterActivity
 

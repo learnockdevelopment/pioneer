@@ -47,8 +47,8 @@ void main() {
   final appGradle = File('${baseDir.path}/android/app/build.gradle');
   if (appGradle.existsSync()) {
     var content = appGradle.readAsStringSync();
-    content = content.replaceAll(RegExp(r'namespace\s*=\s*"[^"]+"'), 'namespace = "com.pioneer.app"');
-    content = content.replaceAll(RegExp(r'applicationId\s+("[^"]+"|\S+)'), 'applicationId "com.pioneer.app"');
+    content = content.replaceAll(RegExp(r'namespace\s*=\s*"[^"]+"'), 'namespace = "com.pioneeracademy.app"');
+    content = content.replaceAll(RegExp(r'applicationId\s+("[^"]+"|\S+)'), 'applicationId "com.pioneeracademy.app"');
     content = content.replaceAll(RegExp(r'versionCode\s*=\s*\d+'), 'versionCode = 1');
     content = content.replaceAll(RegExp(r'versionName\s*=\s*"[^"]+"'), 'versionName = "1.0.0"');
     content = content.replaceAll('flutterVersionCode = "92"', 'flutterVersionCode = "1"');
@@ -79,7 +79,7 @@ void main() {
   final targetKotlinDir = Directory('${kotlinBase.path}/com/pioneer/app');
   targetKotlinDir.createSync(recursive: true);
   final newActivity = File('${targetKotlinDir.path}/MainActivity.kt');
-  newActivity.writeAsStringSync('package com.pioneer.app\n\nimport io.flutter.embedding.android.FlutterActivity\n\nclass MainActivity: FlutterActivity()\n');
+  newActivity.writeAsStringSync('package com.pioneeracademy.app\n\nimport io.flutter.embedding.android.FlutterActivity\n\nclass MainActivity: FlutterActivity()\n');
   print('Wrote new MainActivity.kt in ${targetKotlinDir.path}');
 
   // Remove old kotlin package folders if different
@@ -110,7 +110,7 @@ void main() {
   final pbxprojIos = File('${baseDir.path}/ios/Runner.xcodeproj/project.pbxproj');
   if (pbxprojIos.existsSync()) {
     var content = pbxprojIos.readAsStringSync();
-    content = content.replaceAll(RegExp(r'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*;'), 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneer.app;');
+    content = content.replaceAll(RegExp(r'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*;'), 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneeracademy.app;');
     content = content.replaceAll(RegExp(r'INFOPLIST_KEY_CFBundleDisplayName\s*=\s*"[^"]*";'), 'INFOPLIST_KEY_CFBundleDisplayName = "Pioneer Academy";');
     pbxprojIos.writeAsStringSync(content);
     print('Updated ios/Runner.xcodeproj/project.pbxproj');
@@ -122,7 +122,7 @@ void main() {
   if (appInfo.existsSync()) {
     var content = appInfo.readAsStringSync();
     content = content.replaceAll(RegExp(r'PRODUCT_NAME\s*=\s*\w+'), 'PRODUCT_NAME = pioneer_academy');
-    content = content.replaceAll(RegExp(r'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]+'), 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneer.app');
+    content = content.replaceAll(RegExp(r'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]+'), 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneeracademy.app');
     content = content.replaceAll(RegExp(r'PRODUCT_COPYRIGHT\s*=\s*Copyright © 2026 [^\.]*\. All rights reserved\.'), 'PRODUCT_COPYRIGHT = Copyright © 2026 com.pioneer. All rights reserved.');
     appInfo.writeAsStringSync(content);
     print('Updated macos/Runner/Configs/AppInfo.xcconfig');
@@ -131,8 +131,8 @@ void main() {
   final pbxprojMacos = File('${baseDir.path}/macos/Runner.xcodeproj/project.pbxproj');
   if (pbxprojMacos.existsSync()) {
     var content = pbxprojMacos.readAsStringSync();
-    content = content.replaceAll(RegExp(r'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*\.RunnerTests;'), 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneer.app.RunnerTests;');
-    content = content.replaceAll(RegExp(r'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*;'), 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneer.app;');
+    content = content.replaceAll(RegExp(r'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*\.RunnerTests;'), 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneeracademy.app.RunnerTests;');
+    content = content.replaceAll(RegExp(r'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*;'), 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneeracademy.app;');
     pbxprojMacos.writeAsStringSync(content);
     print('Updated macos/Runner.xcodeproj/project.pbxproj');
   }
@@ -175,7 +175,7 @@ void main() {
   if (cmakeLinux.existsSync()) {
     var content = cmakeLinux.readAsStringSync();
     content = content.replaceAll(RegExp(r'set\(BINARY_NAME\s+"[^"]+"\s*\)'), 'set(BINARY_NAME "pioneer_academy")');
-    content = content.replaceAll(RegExp(r'set\(APPLICATION_ID\s+"[^"]+"\s*\)'), 'set(APPLICATION_ID "com.pioneer.app")');
+    content = content.replaceAll(RegExp(r'set\(APPLICATION_ID\s+"[^"]+"\s*\)'), 'set(APPLICATION_ID "com.pioneeracademy.app")');
     cmakeLinux.writeAsStringSync(content);
     print('Updated linux/CMakeLists.txt');
   }

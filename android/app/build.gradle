@@ -30,7 +30,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.pioneer.app"
+    namespace = "com.pioneeracademy.app"
     compileSdk = 36
     buildToolsVersion = "36.0.0"
     ndkVersion = "28.2.13676358"
@@ -57,7 +57,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.pioneer.app"
+        applicationId "com.pioneeracademy.app"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

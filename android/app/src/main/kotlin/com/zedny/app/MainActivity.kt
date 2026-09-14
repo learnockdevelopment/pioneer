@@ -1,1 +1,1 @@
-// Obsolete - moved to com.pioneer.app.MainActivity
+// Obsolete - moved to com.pioneeracademy.app.MainActivity

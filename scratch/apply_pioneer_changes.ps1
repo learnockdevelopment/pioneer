@@ -35,8 +35,8 @@ foreach ($file in $dartFiles) {
 $appGradlePath = "$baseDir\android\app\build.gradle"
 if (Test-Path $appGradlePath) {
     $content = [IO.File]::ReadAllText($appGradlePath, [Text.Encoding]::UTF8)
-    $content = [regex]::Replace($content, 'namespace\s*=\s*"[^"]+"', 'namespace = "com.pioneer.app"')
-    $content = [regex]::Replace($content, 'applicationId\s+("[^"]+"|\S+)', 'applicationId "com.pioneer.app"')
+    $content = [regex]::Replace($content, 'namespace\s*=\s*"[^"]+"', 'namespace = "com.pioneeracademy.app"')
+    $content = [regex]::Replace($content, 'applicationId\s+("[^"]+"|\S+)', 'applicationId "com.pioneeracademy.app"')
     $content = [regex]::Replace($content, 'versionCode\s*=\s*\d+', 'versionCode = 1')
     $content = [regex]::Replace($content, 'versionName\s*=\s*"[^"]+"', 'versionName = "1.0.0"')
     $content = $content.Replace('flutterVersionCode = "92"', 'flutterVersionCode = "1"')
@@ -68,7 +68,7 @@ if (-not (Test-Path $pioneerKotlinDir)) {
     New-Item -ItemType Directory -Path $pioneerKotlinDir -Force | Out-Null
 }
 $mainActivityContent = @"
-package com.pioneer.app
+package com.pioneeracademy.app
 
 import io.flutter.embedding.android.FlutterActivity
 
@@ -90,7 +90,7 @@ if (Test-Path $infoPlistPath) {
 $pbxprojIosPath = "$baseDir\ios\Runner.xcodeproj\project.pbxproj"
 if (Test-Path $pbxprojIosPath) {
     $content = [IO.File]::ReadAllText($pbxprojIosPath, [Text.Encoding]::UTF8)
-    $content = [regex]::Replace($content, 'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*;', 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneer.app;')
+    $content = [regex]::Replace($content, 'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*;', 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneeracademy.app;')
     $content = [regex]::Replace($content, 'INFOPLIST_KEY_CFBundleDisplayName\s*=\s*"[^"]*";', 'INFOPLIST_KEY_CFBundleDisplayName = "Pioneer Academy";')
     [IO.File]::WriteAllText($pbxprojIosPath, $content, [Text.Encoding]::UTF8)
     Write-Host "Updated ios/Runner.xcodeproj/project.pbxproj"
@@ -101,7 +101,7 @@ $appInfoPath = "$baseDir\macos\Runner\Configs\AppInfo.xcconfig"
 if (Test-Path $appInfoPath) {
     $content = [IO.File]::ReadAllText($appInfoPath, [Text.Encoding]::UTF8)
     $content = [regex]::Replace($content, 'PRODUCT_NAME\s*=\s*\w+', 'PRODUCT_NAME = pioneer_academy')
-    $content = [regex]::Replace($content, 'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]+', 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneer.app')
+    $content = [regex]::Replace($content, 'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]+', 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneeracademy.app')
     $content = [regex]::Replace($content, 'PRODUCT_COPYRIGHT\s*=\s*Copyright © 2026 [^\.]*\. All rights reserved\.', 'PRODUCT_COPYRIGHT = Copyright © 2026 com.pioneer. All rights reserved.')
     [IO.File]::WriteAllText($appInfoPath, $content, [Text.Encoding]::UTF8)
     Write-Host "Updated macos/Runner/Configs/AppInfo.xcconfig"
@@ -110,8 +110,8 @@ if (Test-Path $appInfoPath) {
 $pbxprojMacosPath = "$baseDir\macos\Runner.xcodeproj\project.pbxproj"
 if (Test-Path $pbxprojMacosPath) {
     $content = [IO.File]::ReadAllText($pbxprojMacosPath, [Text.Encoding]::UTF8)
-    $content = [regex]::Replace($content, 'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*\.RunnerTests;', 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneer.app.RunnerTests;')
-    $content = [regex]::Replace($content, 'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*;', 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneer.app;')
+    $content = [regex]::Replace($content, 'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*\.RunnerTests;', 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneeracademy.app.RunnerTests;')
+    $content = [regex]::Replace($content, 'PRODUCT_BUNDLE_IDENTIFIER\s*=\s*com\.[a-zA-Z0-9_\.]*;', 'PRODUCT_BUNDLE_IDENTIFIER = com.pioneeracademy.app;')
     [IO.File]::WriteAllText($pbxprojMacosPath, $content, [Text.Encoding]::UTF8)
     Write-Host "Updated macos/Runner.xcodeproj/project.pbxproj"
 }
@@ -152,7 +152,7 @@ $cmakeLinuxPath = "$baseDir\linux\CMakeLists.txt"
 if (Test-Path $cmakeLinuxPath) {
     $content = [IO.File]::ReadAllText($cmakeLinuxPath, [Text.Encoding]::UTF8)
     $content = [regex]::Replace($content, 'set\(BINARY_NAME\s+"[^"]+"\s*\)', 'set(BINARY_NAME "pioneer_academy")')
-    $content = [regex]::Replace($content, 'set\(APPLICATION_ID\s+"[^"]+"\s*\)', 'set(APPLICATION_ID "com.pioneer.app")')
+    $content = [regex]::Replace($content, 'set\(APPLICATION_ID\s+"[^"]+"\s*\)', 'set(APPLICATION_ID "com.pioneeracademy.app")')
     [IO.File]::WriteAllText($cmakeLinuxPath, $content, [Text.Encoding]::UTF8)
     Write-Host "Updated linux/CMakeLists.txt"
 }
@@ -189,7 +189,7 @@ if (Test-Path $webManifestPath) {
 $firebaseOptionsPath = "$baseDir\lib\firebase_options.dart"
 if (Test-Path $firebaseOptionsPath) {
     $content = [IO.File]::ReadAllText($firebaseOptionsPath, [Text.Encoding]::UTF8)
-    $content = $content.Replace("iosBundleId: 'com.elprof.app'", "iosBundleId: 'com.pioneer.app'")
+    $content = $content.Replace("iosBundleId: 'com.elprof.app'", "iosBundleId: 'com.pioneeracademy.app'")
     [IO.File]::WriteAllText($firebaseOptionsPath, $content, [Text.Encoding]::UTF8)
     Write-Host "Updated lib/firebase_options.dart"
 }
