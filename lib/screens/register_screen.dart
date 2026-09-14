@@ -1,12 +1,12 @@
-import 'dart:ui';
+﻿import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:elmasa/providers/workspace_provider.dart';
-import 'package:elmasa/providers/language_provider.dart';
-import 'package:elmasa/config/app_config.dart';
+import 'package:pioneer/providers/workspace_provider.dart';
+import 'package:pioneer/providers/language_provider.dart';
+import 'package:pioneer/config/app_config.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:elmasa/services/api_service.dart';
+import 'package:pioneer/services/api_service.dart';
 import 'error_screen.dart';
 
 class RegisterScreen extends StatefulWidget {

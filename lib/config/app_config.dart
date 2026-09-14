@@ -1,4 +1,4 @@
-/// ─── elmasa App Configuration ─────────────────────────────────────────────────
+/// ─── Pioneer Academy App Configuration ─────────────────────────────────────────
 /// Single source of truth for all app-wide constants.
 /// To change the site URL, edit ONLY this file.
 library app_config;

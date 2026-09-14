@@ -1,6 +1,6 @@
-{
-    "name": "elmasa",
-    "short_name": "elmasa",
+﻿{
+    "name": "Pioneer Academy",
+    "short_name": "Pioneer Academy",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

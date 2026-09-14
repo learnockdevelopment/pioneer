@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:elmasa/providers/language_provider.dart';
-import 'package:elmasa/providers/workspace_provider.dart';
-import 'package:elmasa/screens/simple_scanner_screen.dart';
-import 'package:elmasa/widgets/premium_loader.dart';
+import 'package:pioneer/providers/language_provider.dart';
+import 'package:pioneer/providers/workspace_provider.dart';
+import 'package:pioneer/screens/simple_scanner_screen.dart';
+import 'package:pioneer/widgets/premium_loader.dart';
 
 class SubscribeScreen extends StatefulWidget {
   final Map<String, dynamic> course;

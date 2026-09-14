@@ -5,11 +5,11 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = elmasa
+PRODUCT_NAME = pioneer_academy
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.elprof.app
+PRODUCT_BUNDLE_IDENTIFIER = com.pioneer.app
 
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2026 com.elprof. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 com.pioneer. All rights reserved.

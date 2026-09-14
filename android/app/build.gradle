@@ -15,12 +15,12 @@ if (localPropertiesFile.exists()) {
 
 def flutterVersionCode = localProperties.getProperty("flutter.versionCode")
 if (flutterVersionCode == null) {
-    flutterVersionCode = "92"
+    flutterVersionCode = "1"
 }
 
 def flutterVersionName = localProperties.getProperty("flutter.versionName")
 if (flutterVersionName == null) {
-    flutterVersionName = "92"
+    flutterVersionName = "1.0.0"
 }
 
 def keystoreProperties = new Properties()
@@ -30,7 +30,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.elprof.app"
+    namespace = "com.pioneer.app"
     compileSdk = 36
     buildToolsVersion = "36.0.0"
     ndkVersion = "28.2.13676358"
@@ -57,10 +57,10 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.elprof.app"
+        applicationId "com.pioneer.app"
         minSdk = 26
         targetSdk = 36
-        versionCode = 92
+        versionCode = 1
         versionName = "1.0.0"
 
         externalNativeBuild {

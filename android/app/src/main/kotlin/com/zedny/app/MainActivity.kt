@@ -1,6 +1,1 @@
-package com.elprof.app
-
-
-import io.flutter.embedding.android.FlutterActivity
-
-class MainActivity: FlutterActivity()
+// Obsolete - moved to com.pioneer.app.MainActivity
