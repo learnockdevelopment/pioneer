@@ -1,0 +1,86 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    afterEvaluate { project ->
+        if (project.hasProperty('android')) {
+            project.android {
+                compileSdkVersion 36
+                compileOptions {
+                    sourceCompatibility = JavaVersion.VERSION_17
+                    targetCompatibility = JavaVersion.VERSION_17
+                }
+                if (project.android.namespace == null) {
+                    namespace = "com.elprof.${project.name.replace('-', '_')}"
+                }
+                defaultConfig {
+                    targetSdkVersion 36
+                    externalNativeBuild {
+                        cmake {
+                            arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
+                            cppFlags "-Wl,-z,max-page-size=16384"
+                            cFlags "-Wl,-z,max-page-size=16384"
+                        }
+                        ndkBuild {
+                            arguments "APP_SUPPORT_FLEXIBLE_PAGE_SIZES:=true"
+                            arguments "APP_LDFLAGS:=-Wl,-z,max-page-size=16384"
+                        }
+                    }
+                }
+                packaging {
+                    jniLibs {
+                        useLegacyPackaging = false
+                    }
+                }
+                packagingOptions {
+                    jniLibs {
+                        useLegacyPackaging = false
+                    }
+                }
+
+                if (project.plugins.hasPlugin('kotlin-android')) {
+                    kotlinOptions {
+                        jvmTarget = '17'
+                    }
+                }
+            }
+            project.tasks.withType(com.android.build.gradle.tasks.ProcessLibraryManifest).configureEach {
+                doFirst {
+                    def manifestFile = it.mainManifest.get().asFile
+                    if (manifestFile.exists()) {
+                        def content = manifestFile.text
+                        if (content.contains('package=')) {
+                            println "Patching manifest for ${project.name}: removing 'package' attribute"
+                            manifestFile.text = content.replaceFirst(/package="[^"]+"/, '')
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+    configurations.all {
+        resolutionStrategy {
+            force 'androidx.core:core-ktx:1.13.1'
+            force 'androidx.core:core:1.13.1'
+            force 'androidx.browser:browser:1.8.0'
+            force 'androidx.activity:activity:1.9.3'
+            force 'androidx.activity:activity-ktx:1.9.3'
+            force 'androidx.navigationevent:navigationevent-android:1.0.0'
+            force 'com.android.billingclient:billing:8.0.0'
+        }
+    }
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

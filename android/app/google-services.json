@@ -1,0 +1,406 @@
+{
+  "project_info": {
+    "project_number": "1005987793010",
+    "project_id": "learnock-471408",
+    "storage_bucket": "learnock-471408.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005987793010:android:e5054a131be29d45d51aeb",
+        "android_client_info": {
+          "package_name": "com.arkanshares.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005987793010-cm3pdbudphh9lci5p7pnmqepjn1410ji.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arkanshares.app",
+            "certificate_hash": "55aa69b3facd8b29215b345c3d35f9a8bb500abc"
+          }
+        },
+        {
+          "client_id": "1005987793010-kbre2sk4ne2uulo5q026o1d02t9eah98.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arkanshares.app",
+            "certificate_hash": "66492d446ee84d11c75783262a3136dbf3883a40"
+          }
+        },
+        {
+          "client_id": "1005987793010-nalc7032373542lm4r9p19ngpn0bso2m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arkanshares.app",
+            "certificate_hash": "f2ab556a57e3b8689bdcf545d00fd30ff26a00b6"
+          }
+        },
+        {
+          "client_id": "1005987793010-76e07h65d921kojf63f1nj47fdlchv7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn_G6ZTnAWg-DWPPaBRF5Dc_CazexEftA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005987793010-3t031i48qcj709gq1a4covs9etmqpnmp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1005987793010-1prrhu620bj5t9cokb2t7q7rdse9meb6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elprofvirus.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005987793010:android:ef83c624053d7287d51aeb",
+        "android_client_info": {
+          "package_name": "com.bastha.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005987793010-4k3b59j3a82otj9nci966r8vbppkiq0i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bastha.app",
+            "certificate_hash": "55aa69b3facd8b29215b345c3d35f9a8bb500abc"
+          }
+        },
+        {
+          "client_id": "1005987793010-ds0tevsf1v7e146dbedfl6q2a3d3pgho.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bastha.app",
+            "certificate_hash": "6cb045158b703ec00396c5e1a1ec274d8d2e8cd2"
+          }
+        },
+        {
+          "client_id": "1005987793010-76e07h65d921kojf63f1nj47fdlchv7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn_G6ZTnAWg-DWPPaBRF5Dc_CazexEftA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005987793010-3t031i48qcj709gq1a4covs9etmqpnmp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1005987793010-1prrhu620bj5t9cokb2t7q7rdse9meb6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elprofvirus.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005987793010:android:4da8067b89132c96d51aeb",
+        "android_client_info": {
+          "package_name": "com.elprof.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005987793010-76e07h65d921kojf63f1nj47fdlchv7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn_G6ZTnAWg-DWPPaBRF5Dc_CazexEftA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005987793010-3t031i48qcj709gq1a4covs9etmqpnmp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1005987793010-1prrhu620bj5t9cokb2t7q7rdse9meb6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elprofvirus.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005987793010:android:e2253c209299f271d51aeb",
+        "android_client_info": {
+          "package_name": "com.hayatravel.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005987793010-dvda5186iagq1b32agp8kp9ir301fo8o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hayatravel.app",
+            "certificate_hash": "55aa69b3facd8b29215b345c3d35f9a8bb500abc"
+          }
+        },
+        {
+          "client_id": "1005987793010-j3q2gs0kb6vlrcqp1035o5u17kk7ckbn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hayatravel.app",
+            "certificate_hash": "480f7a36052cf2a8c3718b03fc18e4a482f364c0"
+          }
+        },
+        {
+          "client_id": "1005987793010-76e07h65d921kojf63f1nj47fdlchv7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn_G6ZTnAWg-DWPPaBRF5Dc_CazexEftA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005987793010-3t031i48qcj709gq1a4covs9etmqpnmp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1005987793010-1prrhu620bj5t9cokb2t7q7rdse9meb6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elprofvirus.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005987793010:android:ec4693adc83603fcd51aeb",
+        "android_client_info": {
+          "package_name": "com.itrendlearnock.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005987793010-f6ii1hc74dbdp14u0bt3kqbq6rs5kk2n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itrendlearnock.app",
+            "certificate_hash": "55aa69b3facd8b29215b345c3d35f9a8bb500abc"
+          }
+        },
+        {
+          "client_id": "1005987793010-h13antt26ch9ehmsu375j61c1ghk4rc3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itrendlearnock.app",
+            "certificate_hash": "35423823a317f6c64b26cd3dbc2a6adf9d904db7"
+          }
+        },
+        {
+          "client_id": "1005987793010-hsthjnpjll7g82rtei7p578kcjdues28.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itrendlearnock.app",
+            "certificate_hash": "cd7b502cbb169f1ea0a7b9f65a964a7a51183726"
+          }
+        },
+        {
+          "client_id": "1005987793010-mc48neoq1d0k3jsdh0k5n40sh3hkuttv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itrendlearnock.app",
+            "certificate_hash": "411caddde77554e83d543a3bbaf79acebba96d9e"
+          }
+        },
+        {
+          "client_id": "1005987793010-76e07h65d921kojf63f1nj47fdlchv7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn_G6ZTnAWg-DWPPaBRF5Dc_CazexEftA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005987793010-3t031i48qcj709gq1a4covs9etmqpnmp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1005987793010-1prrhu620bj5t9cokb2t7q7rdse9meb6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elprofvirus.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005987793010:android:dd68e3a22d3603bad51aeb",
+        "android_client_info": {
+          "package_name": "com.learnock.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005987793010-4vjnrcbt0vcici4rii106gmbih1d0afh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.learnock.app",
+            "certificate_hash": "aa169a13155de6d4bab2c7122231ecda034f9f7c"
+          }
+        },
+        {
+          "client_id": "1005987793010-iea0bugk028qitkf247elejam9jg683c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.learnock.app",
+            "certificate_hash": "f2ab556a57e3b8689bdcf545d00fd30ff26a00b6"
+          }
+        },
+        {
+          "client_id": "1005987793010-qv2d5rug5ukt97oqv3cbu1svv4c0ursa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.learnock.app",
+            "certificate_hash": "55aa69b3facd8b29215b345c3d35f9a8bb500abc"
+          }
+        },
+        {
+          "client_id": "1005987793010-vlur3m9k2m5db78h02dorr2vg9js0gi0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.learnock.app",
+            "certificate_hash": "480f7a36052cf2a8c3718b03fc18e4a482f364c0"
+          }
+        },
+        {
+          "client_id": "1005987793010-vrfvad96mn07tdf8imfc0cigp5iojidl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.learnock.app",
+            "certificate_hash": "cd7b502cbb169f1ea0a7b9f65a964a7a51183726"
+          }
+        },
+        {
+          "client_id": "1005987793010-76e07h65d921kojf63f1nj47fdlchv7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn_G6ZTnAWg-DWPPaBRF5Dc_CazexEftA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005987793010-3t031i48qcj709gq1a4covs9etmqpnmp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1005987793010-1prrhu620bj5t9cokb2t7q7rdse9meb6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elprofvirus.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005987793010:android:c2e2e334329887c7d51aeb",
+        "android_client_info": {
+          "package_name": "com.noon3lemny.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005987793010-jcoessdp773as4vuinn2blcjg4v4k57f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.noon3lemny.app",
+            "certificate_hash": "55aa69b3facd8b29215b345c3d35f9a8bb500abc"
+          }
+        },
+        {
+          "client_id": "1005987793010-k4id7f22kuuqli3fklra9qjikj7o96ih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.noon3lemny.app",
+            "certificate_hash": "0744dfb6f58869946bd4d13c6625c5ed2c53e8a5"
+          }
+        },
+        {
+          "client_id": "1005987793010-76e07h65d921kojf63f1nj47fdlchv7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn_G6ZTnAWg-DWPPaBRF5Dc_CazexEftA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005987793010-3t031i48qcj709gq1a4covs9etmqpnmp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1005987793010-1prrhu620bj5t9cokb2t7q7rdse9meb6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elprofvirus.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

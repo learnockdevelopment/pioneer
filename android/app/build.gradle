@@ -1,0 +1,116 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "com.google.gms.google-services"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader("UTF-8") { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty("flutter.versionCode")
+if (flutterVersionCode == null) {
+    flutterVersionCode = "92"
+}
+
+def flutterVersionName = localProperties.getProperty("flutter.versionName")
+if (flutterVersionName == null) {
+    flutterVersionName = "92"
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    namespace = "com.elprof.app"
+    compileSdk = 36
+    buildToolsVersion = "36.0.0"
+    ndkVersion = "28.2.13676358"
+
+    signingConfigs {
+        release {
+            keyAlias = keystoreProperties['keyAlias']
+            keyPassword = keystoreProperties['keyPassword']
+            storeFile = keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword = keystoreProperties['storePassword']
+            v1SigningEnabled false
+            v2SigningEnabled true
+        }
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    defaultConfig {
+        applicationId "com.elprof.app"
+        minSdk = 26
+        targetSdk = 36
+        versionCode = 92
+        versionName = "1.0.0"
+
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
+                cppFlags "-Wl,-z,max-page-size=16384"
+                cFlags "-Wl,-z,max-page-size=16384"
+            }
+            ndkBuild {
+                arguments "APP_SUPPORT_FLEXIBLE_PAGE_SIZES:=true"
+                arguments "APP_LDFLAGS:=-Wl,-z,max-page-size=16384"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            if (keystoreProperties['storeFile'] != null && file(keystoreProperties['storeFile']).exists()) {
+                signingConfig = signingConfigs.release
+            } else {
+                signingConfig = signingConfigs.debug
+            }
+        }
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = false
+        }
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = false
+        }
+    }
+
+
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
+    implementation 'com.android.billingclient:billing:8.0.0'
+    implementation 'com.google.android.gms:play-services-auth:21.2.0'
+    implementation 'com.google.android.gms:play-services-base:18.5.0'
+}

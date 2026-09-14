@@ -1,0 +1,51 @@
+PODS:
+  - device_info_plus (0.0.1):
+    - Flutter
+  - DTTJailbreakDetection (0.4.0)
+  - Flutter (1.0.0)
+  - MTBBarcodeScanner (5.0.11)
+  - no_screenshot (0.7.0):
+    - Flutter
+  - qr_code_scanner (0.2.0):
+    - Flutter
+    - MTBBarcodeScanner
+  - safe_device (1.0.0):
+    - DTTJailbreakDetection
+    - Flutter
+
+DEPENDENCIES:
+  - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
+  - Flutter (from `Flutter`)
+  - no_screenshot (from `.symlinks/plugins/no_screenshot/ios`)
+  - qr_code_scanner (from `.symlinks/plugins/qr_code_scanner/ios`)
+  - safe_device (from `.symlinks/plugins/safe_device/ios`)
+
+SPEC REPOS:
+  trunk:
+    - DTTJailbreakDetection
+    - MTBBarcodeScanner
+
+EXTERNAL SOURCES:
+  device_info_plus:
+    :path: ".symlinks/plugins/device_info_plus/ios"
+  Flutter:
+    :path: Flutter
+  no_screenshot:
+    :path: ".symlinks/plugins/no_screenshot/ios"
+  qr_code_scanner:
+    :path: ".symlinks/plugins/qr_code_scanner/ios"
+  safe_device:
+    :path: ".symlinks/plugins/safe_device/ios"
+
+SPEC CHECKSUMS:
+  device_info_plus: 71ffc6ab7634ade6267c7a93088ed7e4f74e5896
+  DTTJailbreakDetection: 5e356c5badc17995f65a83ed9483f787a0057b71
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
+  no_screenshot: 9a6d77e148b3317dabddc956f0ce8f053d348f61
+  qr_code_scanner: d77f94ecc9abf96d9b9b8fc04ef13f611e5a147a
+  safe_device: 205ad04de30f4512ca889418d4783e1b6fdf8cfe
+
+PODFILE CHECKSUM: e201c6f55c0e61aecf42632a3b1083f89f132e9c
+
+COCOAPODS: 1.16.2

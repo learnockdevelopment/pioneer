@@ -1,0 +1,78 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '13.0'
+
+# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+  unless File.exist?(generated_xcode_build_settings_path)
+    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
+  end
+
+  File.foreach(generated_xcode_build_settings_path) do |line|
+    matches = line.match(/FLUTTER_ROOT\=(.*)/)
+    return matches[1].strip if matches
+  end
+  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+
+flutter_ios_podfile_setup
+
+target 'Runner' do
+  use_frameworks!
+
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  target 'RunnerTests' do
+    inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+      # Only exclude i386 (32-bit Intel); never exclude arm64 so Apple Silicon
+      # simulators (iPhone 17, etc.) can build natively without Rosetta.
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'i386'
+      config.build_settings.delete('EXCLUDED_ARCHS')
+    end
+  end
+
+  # --- Override the Runner target build settings directly ---
+  # Flutter's Generated.xcconfig sets EXCLUDED_ARCHS[sdk=iphonesimulator*]=i386 arm64
+  # which blocks arm64 simulator builds. We override it here.
+  runner_project = installer.aggregate_targets
+    .find { |t| t.name == 'Pods-Runner' }
+  runner_project&.xcconfigs&.each_value do |xcconfig|
+    xcconfig.attributes.delete('EXCLUDED_ARCHS[sdk=iphonesimulator*]')
+  end
+
+  # Also patch the xcconfig files on disk that CocoaPods writes for Runner
+  Dir.glob('Pods/Target Support Files/Pods-Runner/Pods-Runner.*.xcconfig') do |xcconfig_path|
+    content = File.read(xcconfig_path)
+    # Remove any arm64 from EXCLUDED_ARCHS lines, keeping only i386
+    content.gsub!(/EXCLUDED_ARCHS\[sdk=iphonesimulator\*\]=.*/) do |match|
+      'EXCLUDED_ARCHS[sdk=iphonesimulator*]=i386'
+    end
+    File.write(xcconfig_path, content)
+  end
+
+  # Fix for Xcode 14.3+ PhaseScriptExecution failure (readlink -f)
+  frameworks_script = "Pods/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh"
+  if File.exist?(frameworks_script)
+    content = File.read(frameworks_script)
+    content.gsub!("readlink \"${source}\"", "readlink -f \"${source}\"")
+    content.gsub!("readlink \"${binary}\"", "readlink -f \"${binary}\"")
+    File.write(frameworks_script, content)
+  end
+end
