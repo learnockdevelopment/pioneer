@@ -63,10 +63,10 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.pioneeracademy.app"
+        applicationId = "com.pioneeracademy.app"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
+        versionCode = 100
         versionName = "1.0.0"
 
         externalNativeBuild {

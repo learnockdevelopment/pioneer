@@ -4,7 +4,7 @@
 library app_config;
 
 /// The hostname used for all API calls and web referrers (no scheme, no trailing slash).
-const String kSiteHost = 'nebras-academy.learnock.com';
+const String kSiteHost = 'pioneer.learnock.com';
 
 /// The full HTTPS URL of the site (with scheme, no trailing slash).
 const String kSiteUrl = 'https://$kSiteHost';
