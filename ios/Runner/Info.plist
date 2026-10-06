@@ -28,6 +28,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>This app needs camera access to scan QR codes for account login and enrollment.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app does not track your location. Location access is only used by the photo picker to read location metadata of photos you choose to upload.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs photo library access to allow you to select and upload your profile picture.</string>
 	<key>UIApplicationSceneManifest</key>
