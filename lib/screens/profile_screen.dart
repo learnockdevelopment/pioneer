@@ -11,6 +11,7 @@ import 'package:pioneer/providers/theme_provider.dart';
 import 'package:pioneer/widgets/premium_loader.dart';
 import 'package:intl/intl.dart';
 import 'package:pioneer/utils/iconly.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -22,10 +23,12 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   bool _isGroupsLoading = false;
   List<dynamic> _groups = [];
+  String _appVersion = '';
 
   @override
   void initState() {
     super.initState();
+    _loadAppVersion();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final wp = Provider.of<WorkspaceProvider>(context, listen: false);
       final token = wp.activeWorkspace?.token;
@@ -33,6 +36,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
       print('🔑 [ProfileScreen] Active Workspace Token: $token');
       _fetchGroups();
     });
+  }
+
+  Future<void> _loadAppVersion() async {
+    try {
+      final info = await PackageInfo.fromPlatform();
+      if (mounted) setState(() => _appVersion = info.version);
+    } catch (e) {
+      debugPrint('Error loading app version: $e');
+    }
   }
 
   Future<void> _fetchGroups() async {
@@ -358,8 +370,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 32),
             _buildSectionHeader(context, lang.translate('tech_info')),
             const SizedBox(height: 12),
-            _buildInfoCard(context, Icons.fingerprint_rounded, lang.translate('device_id'), wp.deviceId),
-            _buildInfoCard(context, Icons.info_outline_rounded, lang.translate('version'), '1.0.14'),
+            _buildInfoCard(context, Icons.info_outline_rounded, lang.translate('version'), _appVersion),
             const SizedBox(height: 40),
           ],
         ),
@@ -410,7 +421,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final primaryColor = Theme.of(context).primaryColor;
     return Column(
       children: [
-        if (wp.activeWorkspace?.enablePurchasing ?? true)
+        if (wp.mobileAllowPaymentInApp)
           SizedBox(width: double.infinity, height: 56, child: ElevatedButton(onPressed: () => Navigator.pushNamed(context, '/wallet'), style: ElevatedButton.styleFrom(backgroundColor: primaryColor, foregroundColor: Colors.white, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), elevation: 4, shadowColor: primaryColor.withOpacity(0.3)), child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [const Icon(Icons.stars_rounded, size: 20), const SizedBox(width: 10), Text((lang.translate('redeem_voucher') ?? 'CHARGE WALLET').toUpperCase(), style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 14, letterSpacing: 0.5))]))),
         const SizedBox(height: 12),
         InkWell(onTap: () => Navigator.pushNamed(context, '/favorites'), borderRadius: BorderRadius.circular(16), child: Container(height: 56, width: double.infinity, decoration: BoxDecoration(color: primaryColor.withOpacity(0.1), borderRadius: BorderRadius.circular(20)), child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [Icon(Icons.favorite_rounded, size: 20, color: primaryColor), const SizedBox(width: 10), Text((lang.translate('favorites') ?? 'FAVORITES').toUpperCase(), style: TextStyle(color: primaryColor, fontWeight: FontWeight.w900, fontSize: 14, letterSpacing: 0.5))]))),

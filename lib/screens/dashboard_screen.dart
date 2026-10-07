@@ -71,7 +71,7 @@ class _DashboardScreenState extends State<DashboardScreen> with TickerProviderSt
   void _navigateToTab(int targetIndex) {
     if (!_pageController.hasClients) return;
     final wp = Provider.of<WorkspaceProvider>(context, listen: false);
-    final showWallet = !wp.isGuest && (wp.activeWorkspace?.enablePurchasing ?? true);
+    final showWallet = !wp.isGuest && (wp.mobileAllowPaymentInApp);
     
     int pageIdx = targetIndex;
     if (!showWallet && targetIndex == 3) {
@@ -859,7 +859,7 @@ class _DashboardScreenState extends State<DashboardScreen> with TickerProviderSt
 
     final List features = json.decode(workspace?.featuresJson ?? '[]');
 
-    final showWallet = !wp.isGuest && (wp.activeWorkspace?.enablePurchasing ?? true);
+    final showWallet = !wp.isGuest && (wp.mobileAllowPaymentInApp);
 
     Widget homeTab = Stack(
         children: [
@@ -941,7 +941,7 @@ class _DashboardScreenState extends State<DashboardScreen> with TickerProviderSt
                         const SizedBox(height: 24),
                         
                         if (!isGuest) ...[
-                          if (workspace?.enablePurchasing ?? true)
+                          if (wp.mobileAllowPaymentInApp)
                             _buildHeaderBox(context, (lang.translate('wallet_balance') ?? 'رصيد المحفظة').toUpperCase(), "$walletBalance ${lang.translate('currency_le') ?? 'جنيه'}", Icons.account_balance_wallet_rounded, primaryColor, false, () {
                               _navigateToTab(2);
                             }),
@@ -999,7 +999,7 @@ class _DashboardScreenState extends State<DashboardScreen> with TickerProviderSt
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
     final primary = theme.primaryColor;
-    final showWallet = !wp.isGuest && (wp.activeWorkspace?.enablePurchasing ?? true);
+    final showWallet = !wp.isGuest && (wp.mobileAllowPaymentInApp);
 
     int mappedIndex = _currentIndex;
     if (!showWallet && _currentIndex == 3) mappedIndex = 2; // adjust for hidden wallet
@@ -1185,7 +1185,7 @@ class _DashboardScreenState extends State<DashboardScreen> with TickerProviderSt
               child: CourseCard(
                 course: course,
                 isEnrolled: true,
-                enablePurchasing: wp.activeWorkspace?.enablePurchasing ?? true,
+                allowPaymentInApp: wp.mobileAllowPaymentInApp,
                 isFavorite: wp.localFavoriteIds.contains(cid),
                 onTap: () {
                   if (cid > 0) Navigator.pushNamed(context, '/course', arguments: cid);
@@ -1239,7 +1239,7 @@ class _DashboardScreenState extends State<DashboardScreen> with TickerProviderSt
               child: CourseCard(
                 course: course,
                 isEnrolled: isEnrolled,
-                enablePurchasing: wp.activeWorkspace?.enablePurchasing ?? true,
+                allowPaymentInApp: wp.mobileAllowPaymentInApp,
                 isFavorite: wp.localFavoriteIds.contains(cid),
                 onTap: () {
                   if (cid > 0) Navigator.pushNamed(context, '/course', arguments: cid);
@@ -1750,7 +1750,7 @@ class _DashboardScreenState extends State<DashboardScreen> with TickerProviderSt
                     child: Text((lang.translate('account') ?? 'ACCOUNT & BILLING').toUpperCase(), style: TextStyle(color: onSurface.withOpacity(0.3), fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1.5)),
                   ),
                   _buildSidebarAction(icon: Icons.person_rounded, title: lang.translate('profile'), onTap: () { Navigator.pop(context); if (wp.isGuest) Navigator.pushNamedAndRemoveUntil(context, '/onboarding', (r) => false); else _navigateToTab(3); }, wsColor: wsColor),
-                  if (workspace?.enablePurchasing ?? true)
+                  if (wp.mobileAllowPaymentInApp)
                     _buildSidebarAction(icon: Icons.account_balance_wallet_rounded, title: lang.translate('wallet_balance') ?? 'Academy Wallet', onTap: () { Navigator.pop(context); if (wp.isGuest) Navigator.pushNamedAndRemoveUntil(context, '/onboarding', (r) => false); else _navigateToTab(2); }, wsColor: wsColor),
                   const SizedBox(height: 24),
                 ],

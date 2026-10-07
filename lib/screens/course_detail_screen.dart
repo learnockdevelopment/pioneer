@@ -88,7 +88,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                                     errorStr.contains('كاف');
       if (isInsufficientBalance) {
         if (mounted) {
-          final showCharge = wp.activeWorkspace?.enablePurchasing ?? true;
+          final showCharge = wp.mobileAllowPaymentInApp;
           final errorMsg = errorStr.replaceAll('Exception: ', '');
           showDialog(
             context: context,
@@ -839,7 +839,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                           ),
                           const SizedBox(width: 8),
                         ],
-                        if (!isEnrolled && (wp.activeWorkspace?.enablePurchasing ?? true)) ...[
+                        if (!isEnrolled && (wp.mobileAllowPaymentInApp)) ...[
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                             decoration: BoxDecoration(color: Colors.amber.withOpacity(0.12), borderRadius: BorderRadius.circular(6), border: Border.all(color: Colors.amber.withOpacity(0.25))),
@@ -871,7 +871,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                       const SizedBox(height: 16),
   
                       // INLINE APPLY COUPON SECTION
-                      if (!isEnrolled && !wp.isGuest) ...[
+                      if (!isEnrolled && !wp.isGuest && wp.mobileAllowPaymentInApp) ...[
                         Container(
                           padding: const EdgeInsets.all(18),
                           decoration: BoxDecoration(
@@ -1345,7 +1345,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
   // ─── SUBSCRIBE BOTTOM BAR ─────────────────────────────────────────────────
   Widget _buildSubscribeBar(Map<String, dynamic> course, LanguageProvider lang, Color primaryColor, BuildContext context) {
     final wp = Provider.of<WorkspaceProvider>(context, listen: false);
-    final bool enablePurchasing = wp.activeWorkspace?.enablePurchasing ?? true;
+    final bool allowPayment = wp.mobileAllowPaymentInApp;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final onSurface = Theme.of(context).colorScheme.onSurface;
     final bottomBarColor = isDark ? const Color(0xFF0A0A0A) : Colors.white;
@@ -1396,7 +1396,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
               ),
             ),
           ] else ...[
-            if (wp.activeWorkspace?.enablePurchasing ?? true) ...[
+            if (wp.mobileAllowPaymentInApp) ...[
               // PRICE ROW
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1440,10 +1440,10 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(enablePurchasing ? Icons.wallet_rounded : Icons.check_circle_outline_rounded, size: 20),
+                    Icon(allowPayment ? Icons.wallet_rounded : Icons.check_circle_outline_rounded, size: 20),
                     const SizedBox(width: 10),
                     Text(
-                      enablePurchasing
+                      allowPayment
                           ? (lang.translate('redeem_wallet') ?? 'Subscribe using Wallet')
                           : (lang.translate('subscribe_now') ?? 'Enroll Now'),
                       style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w900),

@@ -6,7 +6,7 @@ import 'package:pioneer/providers/language_provider.dart';
 class CourseCard extends StatelessWidget {
   final Map<String, dynamic> course;
   final bool isEnrolled;
-  final bool enablePurchasing;
+  final bool allowPaymentInApp;
   final bool isFavorite;
   final VoidCallback onTap;
   final VoidCallback? onFavoriteTap;
@@ -17,7 +17,7 @@ class CourseCard extends StatelessWidget {
     super.key,
     required this.course,
     required this.isEnrolled,
-    required this.enablePurchasing,
+    required this.allowPaymentInApp,
     required this.isFavorite,
     required this.onTap,
     this.onFavoriteTap,
@@ -288,7 +288,7 @@ class CourseCard extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            if (enablePurchasing)
+                            if (allowPaymentInApp)
                               Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                                 decoration: BoxDecoration(

@@ -488,7 +488,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
                           child: CourseCard(
                             course: course,
                             isEnrolled: true,
-                            enablePurchasing: wp.activeWorkspace?.enablePurchasing ?? true,
+                            allowPaymentInApp: wp.mobileAllowPaymentInApp,
                             isFavorite: wp.localFavoriteIds.contains(cid),
                             onTap: () { if (cid > 0) Navigator.pushNamed(context, '/course', arguments: cid); },
                             onFavoriteTap: () => _toggleFavorite(course),
@@ -527,7 +527,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
                           child: CourseCard(
                             course: course,
                             isEnrolled: isEnrolled,
-                            enablePurchasing: wp.activeWorkspace?.enablePurchasing ?? true,
+                            allowPaymentInApp: wp.mobileAllowPaymentInApp,
                             isFavorite: wp.localFavoriteIds.contains(cid),
                             onTap: () { if (cid > 0) Navigator.pushNamed(context, '/course', arguments: cid); },
                             onFavoriteTap: () => _toggleFavorite(course),

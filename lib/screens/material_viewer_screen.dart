@@ -503,7 +503,7 @@ class _MaterialViewerScreenState extends State<MaterialViewerScreen> {
 
   Widget _buildNotEnrolledView(LanguageProvider lang, Color primaryColor, Color onSurface) {
     final wp = Provider.of<WorkspaceProvider>(context, listen: false);
-    final showPurchasing = wp.activeWorkspace?.enablePurchasing ?? true;
+    final showPurchasing = wp.mobileAllowPaymentInApp;
     final isRTL = lang.currentLocale.languageCode == 'ar';
 
     final dynamic courseObj = _courseData?['data']?['course'] ?? _courseData?['course'];
@@ -556,7 +556,7 @@ class _MaterialViewerScreenState extends State<MaterialViewerScreen> {
           ),
           const SizedBox(height: 32),
 
-          // Price box (if enable_purchasing is true)
+          // Price box (if allow_payment_in_app is true)
           if (showPurchasing) ...[
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -590,7 +590,7 @@ class _MaterialViewerScreenState extends State<MaterialViewerScreen> {
             const SizedBox(height: 24),
           ],
 
-          // Buy button (if enable_purchasing is true)
+          // Buy button (if allow_payment_in_app is true)
           if (showPurchasing) ...[
             SizedBox(
               width: double.infinity,

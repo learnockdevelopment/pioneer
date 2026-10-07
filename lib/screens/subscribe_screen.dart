@@ -250,7 +250,7 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                if (wp.activeWorkspace?.enablePurchasing ?? true)
+                                if (wp.mobileAllowPaymentInApp)
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
@@ -259,7 +259,7 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                                     ],
                                   ),
                                 Column(
-                                  crossAxisAlignment: (wp.activeWorkspace?.enablePurchasing ?? true) ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+                                  crossAxisAlignment: (wp.mobileAllowPaymentInApp) ? CrossAxisAlignment.end : CrossAxisAlignment.start,
                                   children: [
                                     Text(lang.translate('materials_count') ?? 'MODULES', style: TextStyle(color: onSurface.withOpacity(0.4), fontSize: 9, fontWeight: FontWeight.w900, letterSpacing: 1)),
                                     Text("${widget.course['total_materials'] ?? 0}", style: TextStyle(color: onSurface, fontSize: 20, fontWeight: FontWeight.w900)),
@@ -278,7 +278,7 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                       
                       const SizedBox(height: 48),
                       
-                      if (wp.activeWorkspace?.enablePurchasing ?? true) ...[
+                      if (wp.mobileAllowPaymentInApp) ...[
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
